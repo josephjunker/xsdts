@@ -24,66 +24,61 @@ class Schema {
 }
 
 class NamedAttributeGroup {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   contents: Array<LocalAttribute | AttributeGroupRef>;
-  anyAttributeDeclaration: AnyAttribute | undefined;
-  id: ID | undefined;
+  anyAttributeDeclaration?: AnyAttribute;
+  id?: ID;
   name: NCName;
-  anyAttributes: Map<string, string>;
+  anyAttributes?: Map<string, string>;
 }
 
 class TopLevelElement {
-  annotation: Annotation | undefined;
-  elementType: LocalSimpleType | LocalComplexType | undefined;
+  annotation?: Annotation;
+  elementType?: LocalSimpleType | LocalComplexType;
   alternatives: Array<Alternative>;
   identityConstraint: Array<Unique | Key | KeyRef>;
-  id: ID | undefined;
-  type: QName | undefined;
+  id?: ID;
+  type?: QName;
   substitutionGroup: Array<QName>;
-  default: string | undefined;
-  fixed: string | undefined;
-  nillable: boolean | undefined;
-  abstract: boolean | undefined;
-  final: "#all" | "extension" | "restriction" | undefined;
-  block: "#all" | "extension" | "restriction" | "substitution" | undefined;
+  default?: string;
+  fixed?: string;
+  nillable?: boolean;
+  abstract?: boolean;
+  final?: "#all" | "extension" | "restriction";
+  block?: "#all" | "extension" | "restriction" | "substitution";
   name: NCName;
-  anyAttributes: Map<string, string>;
+  anyAttributes?: Map<string, string>;
 }
 
 class TopLevelSimpleType {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   refinement: GlobalRestriction | List | Union;
-  id: ID | undefined;
+  id?: ID;
   final: "#all" | Array<"list" | "union" | "restriction" | "extension">;
-  name: NCName | undefined;
-  anyAttributes: Map<string, string>;
+  name?: NCName;
+  anyAttributes?: Map<string, string>;
 }
 
 class Notation {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
+  annotation?: Annotation;
+  id?: ID;
   name: NCName;
-  public: publicIdentifier | undefined;
-  system: anyURI | undefined;
-  anyAttributes: Map<string, string>;
+  public?: publicIdentifier;
+  system?: anyURI;
+  anyAttributes?: Map<string, string>;
 }
 
 class TopLevelComplexType {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   contents: SimpleContent | ComplexContent | InlineComplexContent;
 }
 
 class InlineComplexContent {
-  openContent: OpenContent | undefined;
-  contents:
-    | GroupRef
-    | GlobalAll
-    | ChoiceExplicitGroup
-    | SequenceExplicitGroup
-    | undefined;
+  openContent?: OpenContent;
+  contents?: GroupRef | GlobalAll | ChoiceExplicitGroup | SequenceExplicitGroup;
   attributes: Array<LocalAttribute | AttributeGroupRef>;
-  assert: Assertion | undefined;
-  anyAttributes: Map<string, string>;
+  assert?: Assertion;
+  anyAttributes?: Map<string, string>;
 }
 
 class ChoiceExplicitGroup {
@@ -95,7 +90,7 @@ class SequenceExplicitGroup {
 }
 
 class ExplicitGroup {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   contents: Array<
     | LocalElement
     | GroupRef
@@ -103,171 +98,158 @@ class ExplicitGroup {
     | SequenceExplicitGroup
     | GlobalAny
   >;
-  id: ID | undefined;
-  minOccurs: number | undefined;
-  maxOccurs: number | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  minOccurs?: number;
+  maxOccurs?: number;
+  anyAttributes?: Map<string, string>;
 }
 
 class GroupRef {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
-  minOccurs: number | undefined;
-  maxOccurs: number | undefined | "unbounded";
+  annotation?: Annotation;
+  id: ID;
+  minOccurs?: number;
+  maxOccurs?: number | "unbounded";
   ref: QName;
-  anyAttributes: Map<string, string>;
+  anyAttributes?: Map<string, string>;
 }
 
 class GlobalAll {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   contents: Array<LocalElement | GlobalAny | LocalGroup>;
-  id: ID | undefined;
+  id?: ID;
   minOccurs: 0 | 1;
   maxOccurs: 0 | 1;
-  anyAttributes: Map<string, string>;
+  anyAttributes?: Map<string, string>;
 }
 
 class LocalElement {
-  annotation: Annotation | undefined;
-  elementType: LocalSimpleType | LocalComplexType | undefined;
+  annotation?: Annotation;
+  elementType?: LocalSimpleType | LocalComplexType;
   alternatives: Array<Alternative>;
   identityConstraint: Array<Unique | Key | KeyRef>;
-  id: ID | undefined;
-  name: NCName | undefined;
-  ref: QName | undefined;
-  type: QName | undefined;
-  minOccurs: number | undefined;
-  maxOccurs: number | undefined;
-  default: string | undefined;
-  fixed: string | undefined;
-  nillable: boolean | undefined;
-  block:
-    | "#all"
-    | Array<"extension" | "restriction" | "substitution">
-    | undefined;
-  form: "qualified" | "unqualified";
-  targetNamespace: anyURI | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  name?: NCName;
+  ref?: QName;
+  type?: QName;
+  minOccurs?: number;
+  maxOccurs?: number;
+  default?: string;
+  fixed?: string;
+  nillable?: boolean;
+  block?: "#all" | Array<"extension" | "restriction" | "substitution">;
+  form?: "qualified" | "unqualified";
+  targetNamespace?: anyURI;
+  anyAttributes?: Map<string, string>;
 }
 
 class Alternative {
-  annotation: Annotation | undefined;
-  contents: LocalSimpleType | LocalComplexType | undefined;
-  id: ID | undefined;
-  test: string | undefined;
-  type: QName | undefined;
+  annotation?: Annotation;
+  contents?: LocalSimpleType | LocalComplexType;
+  id?: ID | undefined;
+  test?: string;
+  type?: QName;
   xpathDefaultNamespace: xpathDefaultNamespace;
-  anyAttributes: Map<string, string>;
+  anyAttributes?: Map<string, string>;
 }
 
 class LocalComplexType {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   contents: SimpleContent | ComplexContent | InlineComplexContent;
-  id: ID | undefined;
-  mixed: boolean | undefined;
-  defaultAttributesApply: boolean | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  mixed?: boolean;
+  defaultAttributesApply?: boolean;
+  anyAttributes?: Map<string, string>;
 }
 
 class ComplexContent {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   contents: ComplexRestriction | ComplexExtension;
-  id: ID | undefined;
-  mixed: boolean | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  mixed?: boolean;
+  anyAttributes?: Map<string, string>;
 }
 
 class ComplexRestriction {
-  annotation: Annotation | undefined;
-  openContent: OpenContent | undefined;
-  contents:
-    | GroupRef
-    | GlobalAll
-    | ChoiceExplicitGroup
-    | SequenceExplicitGroup
-    | undefined;
-  id: ID | undefined;
-  minOccurs: number | undefined;
-  maxOccurs: number | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  openContent?: OpenContent;
+  contents?: GroupRef | GlobalAll | ChoiceExplicitGroup | SequenceExplicitGroup;
+  id?: ID;
+  minOccurs?: number;
+  maxOccurs?: number;
+  anyAttributes?: Map<string, string>;
 }
 
 class ComplexExtension {
-  annotation: Annotation | undefined;
-  openContent: OpenContent | undefined;
-  contents:
-    | GroupRef
-    | GlobalAll
-    | ChoiceExplicitGroup
-    | SequenceExplicitGroup
-    | undefined;
+  annotation?: Annotation;
+  openContent?: OpenContent;
+  contents?: GroupRef | GlobalAll | ChoiceExplicitGroup | SequenceExplicitGroup;
   attributes: Array<LocalAttribute | AttributeGroupRef>;
-  anyAttributeDeclaration: AnyAttribute | undefined;
+  anyAttributeDeclaration?: AnyAttribute;
   assert: Array<Assertion>;
-  id: ID | undefined;
+  id?: ID;
   base: QName;
 }
 
 class SimpleContent {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   contents: SimpleRestriction | SimpleExtension;
-  id: ID | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  anyAttributes?: Map<string, string>;
 }
 
 class SimpleRestriction {
-  annotation: Annotation | undefined;
-  simpleType: LocalSimpleType | undefined;
-  minExclusive: Facet<string>;
-  minInclusive: Facet<string>;
-  maxExclusive: Facet<string>;
-  maxInclusive: Facet<string>;
-  totalDigits: Facet<number>;
-  fractionDigits: Facet<number>;
-  length: Facet<number>;
-  minLength: Facet<number>;
-  maxLength: Facet<number>;
-  enumeration: Facet<string>;
-  whiteSpace: Facet<string>;
-  pattern: Facet<string>;
-  assertion: Assertion;
-  explicitTimezone: Facet<boolean>;
-  anyElements: Array<AnyElement>;
-  attributes: Array<LocalAttribute | AttributeGroupRef>;
-  anyAttributeDeclaration: AnyAttribute | undefined;
-  assert: Array<Assertion>;
-  id: ID | undefined;
-  base: QName | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  simpleType?: LocalSimpleType;
+  minExclusive?: Facet<string>;
+  minInclusive?: Facet<string>;
+  maxExclusive?: Facet<string>;
+  maxInclusive?: Facet<string>;
+  totalDigits?: Facet<number>;
+  fractionDigits?: Facet<number>;
+  length?: Facet<number>;
+  minLength?: Facet<number>;
+  maxLength?: Facet<number>;
+  enumeration?: Facet<string>;
+  whiteSpace?: Facet<string>;
+  pattern?: Facet<string>;
+  assertion?: Assertion;
+  explicitTimezone?: Facet<boolean>;
+  anyElements?: Array<AnyElement>;
+  attributes?: Array<LocalAttribute | AttributeGroupRef>;
+  anyAttributeDeclaration?: AnyAttribute;
+  assert?: Array<Assertion>;
+  id?: ID;
+  base?: QName;
+  anyAttributes?: Map<string, string>;
 }
 
 class AnyAttribute {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
-  namespace: "##any" | "##other" | "##targetNamespace" | "##local" | undefined;
-  notNamespace: Array<anyURI | "##targetNamespace" | "##local"> | undefined; // length >= 1
-  processContents: "skip" | "lax" | "strict" | undefined;
-  notQName: Array<QName | "##defined"> | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  id?: ID;
+  namespace?: "##any" | "##other" | "##targetNamespace" | "##local";
+  notNamespace?: Array<anyURI | "##targetNamespace" | "##local">; // length >= 1
+  processContents?: "skip" | "lax" | "strict";
+  notQName?: Array<QName | "##defined">;
+  anyAttributes?: Map<string, string>;
 }
 
 class SimpleExtension {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   contents: Array<LocalAttribute | AttributeGroupRef>;
-  anyAttributeDeclaration: AnyAttribute | undefined;
+  anyAttributeDeclaration?: AnyAttribute;
   assert: Array<Assertion>;
-  id: ID | undefined;
-  base: QName | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  base?: QName;
+  anyAttributes?: Map<string, string>;
 }
 
 class Unique {
-  annotation: Annotation | undefined;
-  selectorAndFields: SelectorAndFields | undefined;
-  id: ID | undefined;
-  name: NCName | undefined;
-  ref: QName | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  selectorAndFields?: SelectorAndFields;
+  id?: ID;
+  name?: NCName;
+  ref?: QName;
+  anyAttributes?: Map<string, string>;
 }
 
 class SelectorAndFields {
@@ -276,94 +258,92 @@ class SelectorAndFields {
 }
 
 class Selector {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
+  annotation?: Annotation;
+  id?: ID;
   xpath: string;
-  xpathDefaultNamespace:
+  xpathDefaultNamespace?:
     | anyURI
     | "##defaultNamespace"
     | "##targetNamespace"
-    | "##local"
-    | undefined;
-  anyAttributes: Map<string, string>;
+    | "##local";
+  anyAttributes?: Map<string, string>;
 }
 
 class Field {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
+  annotation?: Annotation;
+  id?: ID;
   xpath: string;
-  xpathDefaultNamespace:
+  xpathDefaultNamespace?:
     | anyURI
     | "##defaultNamespace"
     | "##targetNamespace"
-    | "##local"
-    | undefined;
-  anyAttributes: Map<string, string>;
+    | "##local";
+  anyAttributes?: Map<string, string>;
 }
 
 class Key {
-  annotation: Annotation | undefined;
-  selectorAndFields: SelectorAndFields | undefined;
-  id: ID | undefined;
-  name: NCName | undefined;
-  ref: QName | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  selectorAndFields?: SelectorAndFields;
+  id?: ID;
+  name?: NCName;
+  ref?: QName;
+  anyAttributes?: Map<string, string>;
 }
 
 class KeyRef {
-  annotation: Annotation | undefined;
-  selectorAndFields: SelectorAndFields | undefined;
-  id: ID | undefined;
-  name: NCName | undefined;
-  ref: QName | undefined;
-  refer: QName | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  selectorAndFields?: SelectorAndFields;
+  id?: ID;
+  name?: NCName;
+  ref?: QName;
+  refer?: QName;
+  anyAttributes?: Map<string, string>;
 }
 
 class LocalAttribute {
-  annotation: Annotation | undefined;
-  simpleType: LocalSimpleType | undefined;
-  id: ID | undefined;
-  name: NCName | undefined;
-  ref: QName | undefined;
-  type: QName | undefined;
-  use: "prohibited" | "optional" | "required" | undefined;
-  default: string | undefined;
-  fixed: string | undefined;
-  form: "qualified" | "unqualified" | undefined;
-  targetNamespace: anyURI | undefined;
-  inheritable: boolean | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  simpleType?: LocalSimpleType;
+  id?: ID;
+  name?: NCName;
+  ref?: QName;
+  type?: QName;
+  use?: "prohibited" | "optional" | "required";
+  default?: string;
+  fixed?: string;
+  form?: "qualified" | "unqualified";
+  targetNamespace?: anyURI;
+  inheritable?: boolean;
+  anyAttributes?: Map<string, string>;
 }
 
 class AttributeGroupRef {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
+  annotation?: Annotation;
+  id?: ID;
   ref: QName;
-  anyAttributes: Map<string, string>;
+  anyAttributes?: Map<string, string>;
 }
 
 class OpenContent {
-  annotation: Annotation | undefined;
-  any: Wildcard | undefined;
-  id: ID | undefined;
-  mode: "interleave" | "suffix" | undefined;
-  anyAttribute: Map<string, string>;
+  annotation?: Annotation;
+  any?: Wildcard;
+  id?: ID;
+  mode?: "interleave" | "suffix";
+  anyAttributes?: Map<string, string>;
 }
 
 class Include {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
+  annotation?: Annotation;
+  id?: ID;
   schemaLocation: anyURI;
-  anyAttribute: Map<string, string>;
+  anyAttributes?: Map<string, string>;
 }
 
 class Import {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
-  namespace: anyURI | undefined;
-  schemaLocation: anyURI | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  id?: ID;
+  namespace?: anyURI;
+  schemaLocation?: anyURI;
+  anyAttributes?: Map<string, string>;
 }
 
 class Redefine {
@@ -375,16 +355,16 @@ class Redefine {
     | NamedAttributeGroup
   >;
   schemaLocation: anyURI;
-  id: ID | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  anyAttributes?: Map<string, string>;
 }
 
 class NamedGroup {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   contents: LocalAll | ChoiceSimpleExplicitGroup | SequenceSimpleExplicitGroup;
-  id: ID | undefined;
+  id?: ID;
   name: NCName;
-  anyAttributes: Map<string, string>;
+  anyAttributes?: Map<string, string>;
 }
 
 class ChoiceSimpleExplicitGroup {
@@ -395,39 +375,52 @@ class SequenceSimpleExplicitGroup {
   contents: SimpleExplicitGroup;
 }
 
+class SimpleExplicitGroup {
+  annotation?: Annotation | undefined;
+  contents?: Array<
+    | LocalElement
+    | GroupRef
+    | ChoiceExplicitGroup
+    | SequenceExplicitGroup
+    | GlobalAny
+  >;
+  id?: ID;
+  anyAttributes?: Map<string, string>;
+}
+
 class LocalAll {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   choices: Array<LocalElement | GlobalAny | LocalGroup>;
-  id: ID | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  anyAttributes?: Map<string, string>;
 }
 
 class GlobalAny {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
-  namespace:
+  annotation?: Annotation;
+  id?: ID;
+  namespace?:
     | "##any"
     | "##other"
     | Array<anyURI | "##targetNamespace" | "##local">;
-  notNamespace: Array<anyURI | "##targetNamespace" | "##local">;
-  processContents: "skip" | "lax" | "strict" | undefined;
-  notQName: QName | "##defined" | "##definedSibling" | undefined;
-  minOccurs: number | undefined;
-  maxOccurs: number | undefined;
-  anyAttributes: Map<string, string>;
+  notNamespace?: Array<anyURI | "##targetNamespace" | "##local">;
+  processContents?: "skip" | "lax" | "strict";
+  notQName?: QName | "##defined" | "##definedSibling";
+  minOccurs?: number;
+  maxOccurs?: number;
+  anyAttributes?: Map<string, string>;
 }
 
 class LocalGroup {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
+  annotation?: Annotation;
+  id?: ID;
   ref: QName;
-  minOccurs: number | undefined;
-  maxOccurs: number | undefined;
-  anyAttributes: Map<string, string>;
+  minOccurs?: number;
+  maxOccurs?: number;
+  anyAttributes?: Map<string, string>;
 }
 
 class Override {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   contents: Array<
     | TopLevelSimpleType
     | TopLevelComplexType
@@ -438,112 +431,114 @@ class Override {
     | Notation
     | Annotation
   >;
-  id: ID | undefined;
+  id?: ID;
   schemaLocation: anyURI;
-  anyAttributes: Map<string, string>;
+  anyAttributes?: Map<string, string>;
 }
 
 class Wildcard {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
-  namespace:
+  annotation?: Annotation;
+  id?: ID;
+  namespace?:
     | "##any"
     | "##other"
     | Array<anyURI | "##targetNamespace" | "##local">;
-  notNamespace: Array<anyURI | "##targetNamespace" | "##local">;
-  processContents: "skip" | "lax" | "strict" | undefined;
-  anyAttributes: Map<string, string>;
+  notNamespace?: Array<anyURI | "##targetNamespace" | "##local">;
+  processContents?: "skip" | "lax" | "strict";
+  anyAttributes?: Map<string, string>;
 }
 
 class TopLevelAttribute {
-  annotation: Annotation | undefined;
-  simpleType: LocalSimpleType | undefined;
-  id: ID | undefined;
-  type: QName | undefined;
-  default: string | undefined;
-  fixed: string | undefined;
-  name: NCName | undefined;
-  inheritable: boolean | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  simpleType?: LocalSimpleType;
+  id?: ID;
+  type?: QName;
+  default?: string;
+  fixed?: string;
+  name?: NCName;
+  inheritable?: boolean;
+  anyAttributes?: Map<string, string>;
 }
 
 class Annotation {
   appinfo: Array<Appinfo>;
   documentation: Array<Documentation>;
-  id: ID | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  anyAttributes?: Map<string, string>;
 }
 
 class Appinfo {
-  anyElements: Array<string | AnyElement>;
-  source: anyURI | undefined;
-  anyAttribute: Map<string, string>;
+  anyElements?: Array<string | AnyElement>;
+  source?: anyURI;
+  anyAttributes?: Map<string, string>;
 }
 
 class Documentation {
-  source: anyURI | undefined;
-  lang: language | undefined;
-  anyAttributes: Map<string, string>;
-  anyElements: Array<any>;
+  source?: anyURI;
+  lang?: language;
+  anyAttributes?: Map<string, string>;
+  anyElements?: Array<AnyElement>;
 }
 
 class LocalSimpleType {
-  annotation: Annotation | undefined;
+  annotation?: Annotation;
   refinement: GlobalRestriction | List | Union;
-  id: ID | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  anyAttributes?: Map<string, string>;
 }
 
 class Facet<T> {
-  id: ID | undefined;
-  anyAttributes: Map<string, string>;
+  id?: ID;
+  anyAttributes?: Map<string, string>;
   value: T;
-  fixed: boolean | undefined;
+  fixed?: boolean;
 }
 
 class GlobalRestriction {
-  annotation: Annotation | undefined;
-  simpleType: LocalSimpleType | undefined;
-  minExclusive: Facet<string>;
-  minInclusive: Facet<string>;
-  maxExclusive: Facet<string>;
-  maxInclusive: Facet<string>;
-  totalDigits: Facet<number>;
-  fractionDigits: Facet<number>;
-  length: Facet<number>;
-  minLength: Facet<number>;
-  maxLength: Facet<number>;
-  enumeration: Facet<string>;
-  whiteSpace: Facet<string>;
-  pattern: Facet<string>;
-  assertion: Assertion;
-  explicitTimezone: Facet<boolean>;
-  anyElement: Array<AnyElement>; // namespace ##other
-  id: ID | undefined;
-  base: QName | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  simpleType?: LocalSimpleType;
+  minExclusive?: Facet<string>;
+  minInclusive?: Facet<string>;
+  maxExclusive?: Facet<string>;
+  maxInclusive?: Facet<string>;
+  totalDigits?: Facet<number>;
+  fractionDigits?: Facet<number>;
+  length?: Facet<number>;
+  minLength?: Facet<number>;
+  maxLength?: Facet<number>;
+  enumeration?: Facet<string>;
+  whiteSpace?: Facet<string>;
+  pattern?: Facet<string>;
+  assertion?: Assertion;
+  explicitTimezone?: Facet<boolean>;
+  anyElement?: Array<AnyElement>; // namespace ##other
+  id?: ID;
+  base?: QName;
+  anyAttributes?: Map<string, string>;
 }
 
 class Assertion {
-  annotation: Annotation | undefined;
-  id: ID | undefined;
-  test: string;
-  xpathDefaultNamespace: xpathDefaultNamespace;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  id?: ID;
+  test?: string;
+  xpathDefaultNamespace?: xpathDefaultNamespace;
+  anyAttributes?: Map<string, string>;
 }
 
 class List {
-  contents: Annotation | LocalSimpleType;
-  id: ID | undefined;
-  itemType: QName | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  contents?: LocalSimpleType;
+  id?: ID;
+  itemType?: QName;
+  anyAttributes?: Map<string, string>;
 }
 
 class Union {
-  contents: Annotation | Array<LocalSimpleType>;
-  id: ID | undefined;
-  memberTypes: Array<QName> | undefined;
-  anyAttributes: Map<string, string>;
+  annotation?: Annotation;
+  contents?: Array<LocalSimpleType>;
+  id?: ID;
+  memberTypes?: Array<QName>;
+  anyAttributes?: Map<string, string>;
 }
 
 // Elements from other namespaces that may be intermingled into a schema
