@@ -10,7 +10,7 @@ type publicIdentifier = string;
 class Schema {
   preamble: Array<Include | Import | Redefine | Override | Annotation>;
   annotations: Array<Annotation>;
-  defaultOpenContent: OpenContent | undefined;
+  defaultOpenContent?: OpenContent;
   contents: Array<
     | TopLevelSimpleType
     | TopLevelComplexType
@@ -145,7 +145,7 @@ class LocalElement {
 class Alternative {
   annotation?: Annotation;
   contents?: LocalSimpleType | LocalComplexType;
-  id?: ID | undefined;
+  id?: ID;
   test?: string;
   type?: QName;
   xpathDefaultNamespace: xpathDefaultNamespace;
@@ -376,7 +376,7 @@ class SequenceSimpleExplicitGroup {
 }
 
 class SimpleExplicitGroup {
-  annotation?: Annotation | undefined;
+  annotation?: Annotation;
   contents?: Array<
     | LocalElement
     | GroupRef
