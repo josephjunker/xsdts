@@ -3,6 +3,7 @@
     "appinfo",
     "defns",
     "libxmljs",
-    "nillable"
+    "nillable",
+    "xsds"
   ]
 }

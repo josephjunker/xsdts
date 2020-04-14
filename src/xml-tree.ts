@@ -1,5 +1,4 @@
 import { Document, Element, Attribute, Node } from "libxmljs";
-import { Documentation } from "./xsd-nodes";
 
 export class Attr {
   name: string;

@@ -1,7 +1,7 @@
 // Parse a libxmljs data structure into our data structures
 
-import * as xsd from "./classes";
-import type { Element, Attribute } from "libxmljs";
+import * as xsd from "./xsd-nodes";
+import { Element, Attribute } from "libxmljs";
 
 class ParseError {}
 class ParseResult<T, U> {

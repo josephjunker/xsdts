@@ -1,0 +1,8 @@
+const libxml = require("libxmljs")
+const fs = require("fs")
+const xmlTree = require("./lib/src/xml-tree")
+
+const raw = fs.readFileSync("./example-xsds/XMLSchema.xsd", "UTF8")
+const parsed1 = libxml.parseXml(raw)
+
+let converted = xmlTree.convertDocument(parsed1)
